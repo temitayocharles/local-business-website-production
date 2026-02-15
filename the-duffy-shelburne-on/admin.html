@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Admin | The Duffy</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head><body class="bg-[#f8f4ed] text-slate-900">
+<main class="max-w-4xl mx-auto px-6 py-10">
+<h1 class="text-4xl font-semibold">Admin — The Duffy</h1>
+<p class="mt-2 text-slate-600">Owner access only. Enter your token to continue.</p>
+<section id="authGate" class="mt-6 bg-white rounded-2xl p-6 shadow">
+<label class="text-sm font-semibold">Owner Token</label>
+<input id="adminToken" class="mt-2 border rounded px-3 py-2 w-full" placeholder="Enter token" />
+<button id="unlock" class="mt-4 px-4 py-2 bg-slate-900 text-white rounded">Unlock</button>
+</section>
+<section id="adminPanel" class="hidden">
+<div class="mt-6 bg-white rounded-2xl p-6 shadow">
+<h2 class="text-2xl font-semibold">Change Token</h2>
+<input id="newToken" class="mt-2 border rounded px-3 py-2 w-full" placeholder="New token" />
+<div class="mt-3 flex gap-2">
+  <button id="saveToken" class="px-4 py-2 bg-emerald-700 text-white rounded">Save New Token</button>
+  <button id="resetToken" class="px-4 py-2 bg-slate-200 text-slate-800 rounded">Reset Token</button>
+</div>
+</div>
+</section>
+</main>
+<script>
+const DEFAULT_TOKEN = "duffy-owner-2026";
+const tokenKey = "the-duffy-shelburne-on:siteAdminToken";
+const overrideKey = "the-duffy-shelburne-on:siteAdminTokenOverride";
+const activeToken = () => localStorage.getItem(overrideKey) || DEFAULT_TOKEN;
+function requireToken(){
+  const saved = localStorage.getItem(tokenKey);
+  if(saved === activeToken()){
+    document.getElementById('authGate').classList.add('hidden');
+    document.getElementById('adminPanel').classList.remove('hidden');
+    return true;
+  }
+  return false;
+}
+
+document.getElementById('unlock').addEventListener('click', () => {
+  const input = document.getElementById('adminToken').value;
+  if(input === activeToken()){
+    localStorage.setItem(tokenKey, input);
+    requireToken();
+  } else { alert('Invalid token.'); }
+});
+
+document.getElementById('saveToken').addEventListener('click', () => {
+  const t = document.getElementById('newToken').value;
+  if(!t) return;
+  localStorage.setItem(overrideKey, t);
+  alert('Token updated. Use the new token next time.');
+});
+
+document.getElementById('resetToken').addEventListener('click', () => {
+  localStorage.removeItem(overrideKey);
+  alert('Token reset to default.');
+});
+
+requireToken();
+</script>
+</body></html>

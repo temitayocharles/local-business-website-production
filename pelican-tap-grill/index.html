@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pelican Tap & Grill | Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Inter',sans-serif; background:#e0f2fe;}
+    h1,h2,h3{font-family:'Playfair Display',serif}
+    
+        .banner-track { display:inline-block; white-space:nowrap; animation: marquee 10s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(100%);} 100% { transform: translateX(-100%);} }
+        #siteBanner { text-shadow: 0 0 6px rgba(255,255,255,0.4); }
+        
+  </style>
+</head>
+<body class="text-slate-900">
+  <div id="siteBanner" class="hidden bg-emerald-700 text-white text-center text-sm py-2 overflow-hidden"></div>
+  <header class="bg-white/90 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div>
+        <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Shelburne, Ontario</p>
+        <h1 class="text-2xl font-semibold">Pelican Tap & Grill</h1>
+      </div>
+      <nav class="flex gap-4 text-sm">
+        <a class="hover:underline" href="index.html">Home</a>
+        <a class="hover:underline" href="menu.html">Menu</a>
+        <a class="hover:underline" href="about.html">About</a>
+        <a class="hover:underline" href="gallery.html">Gallery</a>
+        <a class="hover:underline" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="max-w-6xl mx-auto px-6 py-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Local favorite</p>
+        <h2 class="text-4xl md:text-5xl font-semibold">Pelican Tap & Grill in Shelburne, Ontario</h2>
+        <p class="mt-4 text-lg">[INFO NOT FOUND]</p>
+        <div class="mt-6 flex flex-wrap gap-2" id="bookingButtons"></div>
+        <div class="mt-6">
+          <p class="font-semibold">Value proposition</p>
+          <p class="text-sm text-slate-600">[INFO NOT FOUND]</p>
+        </div>
+        <div class="mt-6">
+          <p class="font-semibold">Opening hours</p>
+          <pre class="text-sm text-slate-600 whitespace-pre-wrap">Monday: [INFO NOT FOUND]
+Tuesday: [INFO NOT FOUND]
+Wednesday: [INFO NOT FOUND]
+Thursday: [INFO NOT FOUND]
+Friday: [INFO NOT FOUND]
+Saturday: [INFO NOT FOUND]
+Sunday: [INFO NOT FOUND]</pre>
+        </div>
+      </div>
+      <div class="rounded-3xl overflow-hidden shadow-lg bg-white"><div class='h-80 flex items-center justify-center text-slate-700' style='background:#f0f9ff'>[INSERT BUSINESS IMAGE HERE]</div></div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-8">
+      <h3 class="text-2xl font-semibold">Menu spotlight</h3>
+      <div class="mt-4"><div class='rounded-2xl p-6 shadow' style='background:#f0f9ff'>[NO MENU IMAGES FOUND]</div></div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-8">
+      <h3 class="text-2xl font-semibold">Why guests love it</h3>
+      <div class="mt-4 bg-white rounded-2xl p-6 shadow">
+        <ul class="text-sm text-slate-600 list-disc ml-4"><li>[INFO NOT FOUND]</li></ul>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-8">
+      <h3 class="text-2xl font-semibold">Map</h3>
+      <div class="mt-4 bg-white rounded-2xl p-2 shadow">[INSERT MAP HERE]</div>
+    </section>
+  </main>
+
+  <footer class="border-t mt-12">
+    <div class="max-w-6xl mx-auto px-6 py-6 text-xs text-slate-500">
+      Sources:
+<ul class="list-disc ml-5"></ul>
+    </div>
+  </footer>
+  
+<script>
+(function(){
+  const storageKey = "pelican-tap-grill:siteAdminConfig";
+  let cfg = null;
+  try { cfg = JSON.parse(localStorage.getItem(storageKey) || 'null'); } catch(e) {}
+  if(!cfg) return;
+
+  const banner = document.getElementById('siteBanner');
+  if(banner){
+    if(cfg.bannerEnabled && cfg.bannerText){
+      banner.innerHTML = `<div class="banner-track">${cfg.bannerText} • ${cfg.bannerText} • ${cfg.bannerText}</div>`;
+      banner.classList.remove('hidden');
+    } else {
+      banner.classList.add('hidden');
+    }
+  }
+
+  const booking = cfg.booking || {};
+  const buttons = [
+    ['opentable','OpenTable'],
+    ['resy','Resy'],
+    ['tock','Tock'],
+    ['google','Google Reserve'],
+    ['square','Square'],
+  ];
+  const bookingWrap = document.getElementById('bookingButtons');
+  if(bookingWrap){
+    bookingWrap.innerHTML = '';
+    buttons.forEach(([key,label]) => {
+      const url = booking[key];
+      if(url){
+        const a = document.createElement('a');
+        a.href = url;
+        a.className = 'px-4 py-2 rounded-full border border-slate-300 text-sm hover:bg-slate-100';
+        a.textContent = label;
+        a.target = '_blank';
+        bookingWrap.appendChild(a);
+      }
+    });
+    const call = document.createElement('a');
+    call.href = 'tel:[INFO NOT FOUND]';
+    call.className = 'px-4 py-2 rounded-full bg-slate-900 text-white text-sm hover:bg-slate-800';
+    call.textContent = 'Call to Book';
+    bookingWrap.appendChild(call);
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "title": "Shannon's Tap + Grill Shelburne, Ontario | Local Restaurant",
+  "meta_description": "Visit Shannon's Tap + Grill in Shelburne, Ontario for Burgers, pub favourites, shareable appetizers, and drinks.",
+  "keywords": [
+    "Shannon's Tap + Grill",
+    "Shelburne, Ontario",
+    "restaurant",
+    "local dining"
+  ],
+  "faq": [
+    {
+      "q": "What are Shannon's Tap + Grill's hours?",
+      "a": "See hours on the contact page."
+    },
+    {
+      "q": "Where is Shannon's Tap + Grill located?",
+      "a": "112B Main St W, Shelburne, ON L0N 1S3"
+    },
+    {
+      "q": "Do you offer takeout or catering?",
+      "a": "See menu/services page for details."
+    }
+  ],
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Shannon's Tap + Grill",
+    "address": "112B Main St W, Shelburne, ON L0N 1S3",
+    "telephone": "+1 519-306-1414",
+    "openingHours": [
+      "Monday: 11:00 AM \u2013 11:00 PM",
+      "Tuesday: 11:00 AM \u2013 11:00 PM",
+      "Wednesday: 11:00 AM \u2013 11:00 PM",
+      "Thursday: 11:00 AM \u2013 11:00 PM",
+      "Friday: 11:00 AM \u2013 12:00 AM",
+      "Saturday: 11:00 AM \u2013 12:00 AM",
+      "Sunday: 11:00 AM \u2013 10:00 PM",
+      "Note: Hours should be verified with the business."
+    ]
+  }
+}

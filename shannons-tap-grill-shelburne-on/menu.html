@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shannon’s Tap + Grill | Menu</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Inter',sans-serif; background:#0b1220;}
+    h1,h2,h3{font-family:'Playfair Display',serif}
+  </style>
+
+</head>
+<body class="text-slate-900">
+  <header class="bg-white/90 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div>
+        <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Shelburne, Ontario</p>
+        <h1 class="text-2xl font-semibold">Shannon’s Tap + Grill</h1>
+      </div>
+      <nav class="flex gap-4 text-sm">
+        <a class="hover:underline" href="index.html">Home</a>
+        <a class="hover:underline" href="menu.html">Menu</a>
+        <a class="hover:underline" href="about.html">About</a>
+        <a class="hover:underline" href="gallery.html">Gallery</a>
+        <a class="hover:underline" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-10">
+    <h2 class="text-4xl font-semibold">Menu & Specialties</h2>
+    <p class="mt-2 text-slate-600">Tap a photo to zoom and swipe through.</p>
+
+    <div class="mt-6 bg-white rounded-2xl p-6 shadow">
+      <h3 class="text-2xl font-semibold">Menu board</h3>
+      <div class="mt-4"><div class="grid gap-3 sm:grid-cols-2"><button class='menu-thumb rounded-2xl overflow-hidden shadow bg-white hover:shadow-lg transition' data-index='0'><img src='https://cdn6.localdatacdn.com/images/5980954/m_shannons_tap_grill_photo.jpg?q=697d0c2731953' class='w-full h-40 object-cover' alt='Menu photo' /></button><button class='menu-thumb rounded-2xl overflow-hidden shadow bg-white hover:shadow-lg transition' data-index='1'><img src='https://cdn6.localdatacdn.com/images/5980954/d_shannons_tap_grill_menu.jpg?q=697d0c273195f' class='w-full h-40 object-cover' alt='Menu photo' /></button></div></div>
+      <p class="mt-4 text-sm text-slate-500">Full menu: https://shannons-tap-grill.wheree.com/menu</p>
+    </div>
+
+    <div class="mt-8 bg-white rounded-2xl p-6 shadow">
+      <h3 class="text-2xl font-semibold">Popular picks</h3>
+      <ul class="mt-3 list-disc ml-6 text-slate-700"><li>Buffalo Chicken Wrap</li>
+<li>Loaded Poutine</li>
+<li>Jalapeño Poppers</li>
+<li>Burgers</li>
+<li>Fries</li>
+<li>Salads</li></ul>
+    </div>
+  </main>
+  
+    <div id="lightbox" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center">
+      <button id="lightbox-close" class="absolute top-4 right-4 text-white text-2xl">×</button>
+      <button id="lightbox-prev" class="absolute left-4 text-white text-2xl">‹</button>
+      <img id="lightbox-img" src="" class="max-h-[80vh] max-w-[90vw] rounded-xl shadow-2xl"/>
+      <button id="lightbox-next" class="absolute right-4 text-white text-2xl">›</button>
+    </div>
+    
+  
+<script>
+(function(){
+  const images = ['https://cdn6.localdatacdn.com/images/5980954/m_shannons_tap_grill_photo.jpg?q=697d0c2731953','https://cdn6.localdatacdn.com/images/5980954/d_shannons_tap_grill_menu.jpg?q=697d0c273195f'];
+  if (!images.length) return;
+  let idx = 0;
+  const overlay = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  const nextBtn = document.getElementById('lightbox-next');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const closeBtn = document.getElementById('lightbox-close');
+
+  function openAt(i){
+    idx = i;
+    img.src = images[idx];
+    overlay.classList.remove('hidden');
+  }
+  function close(){ overlay.classList.add('hidden'); }
+  function next(){ idx = (idx + 1) % images.length; img.src = images[idx]; }
+  function prev(){ idx = (idx - 1 + images.length) % images.length; img.src = images[idx]; }
+
+  document.querySelectorAll('.menu-thumb').forEach(btn => {
+    btn.addEventListener('click', () => openAt(parseInt(btn.dataset.index))); 
+  });
+  nextBtn.addEventListener('click', next);
+  prevBtn.addEventListener('click', prev);
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', (e) => { if (e.target.id === 'lightbox') close(); });
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+  function handleSwipe() {
+    const delta = touchEndX - touchStartX;
+    if (Math.abs(delta) > 50) {
+      if (delta < 0) next();
+      else prev();
+    }
+  }
+  overlay.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, {passive:true});
+  overlay.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); }, {passive:true});
+
+})();
+</script>
+
+</body>
+</html>

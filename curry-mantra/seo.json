@@ -1,0 +1,41 @@
+{
+  "title": "Curry Mantra Orangeville (Shelburne area), Ontario | Local Restaurant",
+  "meta_description": "Visit Curry Mantra in Orangeville (Shelburne area), Ontario for Indian classics, tandoor, curries, biryani, sweets, and catering.",
+  "keywords": [
+    "Curry Mantra",
+    "Orangeville (Shelburne area), Ontario",
+    "restaurant",
+    "local dining"
+  ],
+  "faq": [
+    {
+      "q": "What are Curry Mantra's hours?",
+      "a": "See hours on the contact page."
+    },
+    {
+      "q": "Where is Curry Mantra located?",
+      "a": "520 Riddell Rd, Orangeville, ON L9W 5L1"
+    },
+    {
+      "q": "Do you offer takeout or catering?",
+      "a": "See menu/services page for details."
+    }
+  ],
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Curry Mantra",
+    "address": "520 Riddell Rd, Orangeville, ON L9W 5L1",
+    "telephone": "+1 519-940-1100",
+    "openingHours": [
+      "Monday: 11:00 AM \u2013 10:00 PM",
+      "Tuesday: 11:00 AM \u2013 10:00 PM",
+      "Wednesday: 11:00 AM \u2013 10:00 PM",
+      "Thursday: 11:00 AM \u2013 10:00 PM",
+      "Friday: 11:00 AM \u2013 10:00 PM",
+      "Saturday: 11:00 AM \u2013 10:00 PM",
+      "Sunday: 11:00 AM \u2013 10:00 PM",
+      "Note: The website lists hours in multiple places; verify current hours."
+    ]
+  }
+}

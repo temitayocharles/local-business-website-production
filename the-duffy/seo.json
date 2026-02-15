@@ -1,0 +1,40 @@
+{
+  "title": "The Duffy Shelburne, Ontario | Local Restaurant",
+  "meta_description": "Visit The Duffy in Shelburne, Ontario for Pub classics including burgers, wings, nachos, flatbreads, soups, and comfort food.",
+  "keywords": [
+    "The Duffy",
+    "Shelburne, Ontario",
+    "restaurant",
+    "local dining"
+  ],
+  "faq": [
+    {
+      "q": "What are The Duffy's hours?",
+      "a": "See hours on the contact page."
+    },
+    {
+      "q": "Where is The Duffy located?",
+      "a": "214 Main St E, Shelburne, ON L9V 3K6"
+    },
+    {
+      "q": "Do you offer takeout or catering?",
+      "a": "See menu/services page for details."
+    }
+  ],
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "The Duffy",
+    "address": "214 Main St E, Shelburne, ON L9V 3K6",
+    "telephone": "+1 647-393-2102",
+    "openingHours": [
+      "Monday: Closed",
+      "Tuesday: Closed",
+      "Wednesday: 5:00 PM \u2013 10:00 PM",
+      "Thursday: 5:00 PM \u2013 10:00 PM",
+      "Friday: 3:00 PM \u2013 10:00 PM",
+      "Saturday: 12:00 PM \u2013 10:00 PM",
+      "Sunday: 12:00 PM \u2013 10:00 PM"
+    ]
+  }
+}

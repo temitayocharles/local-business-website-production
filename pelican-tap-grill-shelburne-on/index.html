@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pelican Tap & Grill | Home</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Inter',sans-serif; background:#e0f2fe;}
+    h1,h2,h3{font-family:'Playfair Display',serif}
+  </style>
+
+</head>
+<body class="text-slate-900">
+  <header class="bg-white/90 backdrop-blur border-b">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div>
+        <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Shelburne, Ontario</p>
+        <h1 class="text-2xl font-semibold">Pelican Tap & Grill</h1>
+      </div>
+      <nav class="flex gap-4 text-sm">
+        <a class="hover:underline" href="index.html">Home</a>
+        <a class="hover:underline" href="menu.html">Menu</a>
+        <a class="hover:underline" href="about.html">About</a>
+        <a class="hover:underline" href="gallery.html">Gallery</a>
+        <a class="hover:underline" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="max-w-6xl mx-auto px-6 py-10 grid gap-8 md:grid-cols-2">
+      <div>
+        <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Local favorite</p>
+        <h2 class="text-4xl md:text-5xl font-semibold">Pelican Tap & Grill in Shelburne, Ontario</h2>
+        <p class="mt-4 text-lg">[INFO NOT FOUND]</p>
+        <div class="mt-6">
+          <p class="font-semibold">Value proposition</p>
+          <p class="text-sm text-slate-600">[INFO NOT FOUND]</p>
+        </div>
+        <div class="mt-6">
+          <p class="font-semibold">Opening hours</p>
+          <pre class="text-sm text-slate-600 whitespace-pre-wrap">Monday: [INFO NOT FOUND]
+Tuesday: [INFO NOT FOUND]
+Wednesday: [INFO NOT FOUND]
+Thursday: [INFO NOT FOUND]
+Friday: [INFO NOT FOUND]
+Saturday: [INFO NOT FOUND]
+Sunday: [INFO NOT FOUND]</pre>
+        </div>
+      </div>
+      <div class="rounded-3xl overflow-hidden shadow-lg bg-white"><div class='h-80 flex items-center justify-center text-slate-700' style='background:#f0f9ff'>[INSERT BUSINESS IMAGE HERE]</div></div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-8">
+      <h3 class="text-2xl font-semibold">Menu spotlight</h3>
+      <div class="mt-4"><div class='rounded-2xl p-6 shadow' style='background:#f0f9ff'>[NO MENU IMAGES FOUND]</div></div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-8">
+      <h3 class="text-2xl font-semibold">Why guests love it</h3>
+      <div class="mt-4 bg-white rounded-2xl p-6 shadow">
+        <ul class="text-sm text-slate-600 list-disc ml-4"><li>[INFO NOT FOUND]</li></ul>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-8">
+      <h3 class="text-2xl font-semibold">Map</h3>
+      <div class="mt-4 bg-white rounded-2xl p-2 shadow">[INSERT MAP HERE]</div>
+    </section>
+  </main>
+  
+    <div id="lightbox" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center">
+      <button id="lightbox-close" class="absolute top-4 right-4 text-white text-2xl">×</button>
+      <button id="lightbox-prev" class="absolute left-4 text-white text-2xl">‹</button>
+      <img id="lightbox-img" src="" class="max-h-[80vh] max-w-[90vw] rounded-xl shadow-2xl"/>
+      <button id="lightbox-next" class="absolute right-4 text-white text-2xl">›</button>
+    </div>
+    
+  
+<script>
+(function(){
+  const images = [];
+  if (!images.length) return;
+  let idx = 0;
+  const overlay = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  const nextBtn = document.getElementById('lightbox-next');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const closeBtn = document.getElementById('lightbox-close');
+
+  function openAt(i){
+    idx = i;
+    img.src = images[idx];
+    overlay.classList.remove('hidden');
+  }
+  function close(){ overlay.classList.add('hidden'); }
+  function next(){ idx = (idx + 1) % images.length; img.src = images[idx]; }
+  function prev(){ idx = (idx - 1 + images.length) % images.length; img.src = images[idx]; }
+
+  document.querySelectorAll('.menu-thumb').forEach(btn => {
+    btn.addEventListener('click', () => openAt(parseInt(btn.dataset.index))); 
+  });
+  nextBtn.addEventListener('click', next);
+  prevBtn.addEventListener('click', prev);
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', (e) => { if (e.target.id === 'lightbox') close(); });
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+  function handleSwipe() {
+    const delta = touchEndX - touchStartX;
+    if (Math.abs(delta) > 50) {
+      if (delta < 0) next();
+      else prev();
+    }
+  }
+  overlay.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, {passive:true});
+  overlay.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); }, {passive:true});
+
+})();
+</script>
+
+</body>
+</html>

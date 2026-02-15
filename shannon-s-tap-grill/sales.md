@@ -1,0 +1,1 @@
+Hi! We built a clean, search-friendly website for Shannon’s Tap + Grill that makes it easy for locals to find you, view your hours, and see your menu highlights in one place. A dedicated site improves discoverability in Google results, builds trust beyond social media, and gives customers a fast way to call, get directions, and plan a visit.

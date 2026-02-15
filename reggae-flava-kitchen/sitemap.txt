@@ -1,0 +1,6 @@
+Sitemap
+- index.html (Home)
+- menu.html (Menu)
+- about.html (About)
+- gallery.html (Gallery)
+- contact.html (Contact)

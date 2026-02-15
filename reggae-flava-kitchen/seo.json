@@ -1,0 +1,40 @@
+{
+  "title": "Reggae Flava Kitchen Shelburne, Ontario | Local Restaurant",
+  "meta_description": "Visit Reggae Flava Kitchen in Shelburne, Ontario for Jerk, curry, oxtail, fried specials, sides, and catering.",
+  "keywords": [
+    "Reggae Flava Kitchen",
+    "Shelburne, Ontario",
+    "restaurant",
+    "local dining"
+  ],
+  "faq": [
+    {
+      "q": "What are Reggae Flava Kitchen's hours?",
+      "a": "See hours on the contact page."
+    },
+    {
+      "q": "Where is Reggae Flava Kitchen located?",
+      "a": "802 Main St E Unit 5, Shelburne, ON L9V 2Z5"
+    },
+    {
+      "q": "Do you offer takeout or catering?",
+      "a": "See menu/services page for details."
+    }
+  ],
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Reggae Flava Kitchen",
+    "address": "802 Main St E Unit 5, Shelburne, ON L9V 2Z5",
+    "telephone": "+1 519-925-4055",
+    "openingHours": [
+      "Monday: 11:00 AM \u2013 8:00 PM",
+      "Tuesday: 11:00 AM \u2013 8:00 PM",
+      "Wednesday: 11:00 AM \u2013 8:00 PM",
+      "Thursday: 11:00 AM \u2013 8:00 PM",
+      "Friday: 11:00 AM \u2013 8:00 PM",
+      "Saturday: 11:00 AM \u2013 8:00 PM",
+      "Sunday: Closed"
+    ]
+  }
+}

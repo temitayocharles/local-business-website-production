@@ -1,0 +1,41 @@
+{
+  "title": "Main St Cafe Shelburne, Ontario | Local Restaurant",
+  "meta_description": "Visit Main St Cafe in Shelburne, Ontario for Breakfasts, lunches, coffee and caf\u00e9 classics.",
+  "keywords": [
+    "Main St Cafe",
+    "Shelburne, Ontario",
+    "restaurant",
+    "local dining"
+  ],
+  "faq": [
+    {
+      "q": "What are Main St Cafe's hours?",
+      "a": "See hours on the contact page."
+    },
+    {
+      "q": "Where is Main St Cafe located?",
+      "a": "149 Main St W, Shelburne, ON L0N 1S3"
+    },
+    {
+      "q": "Do you offer takeout or catering?",
+      "a": "See menu/services page for details."
+    }
+  ],
+  "schema": {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Main St Cafe",
+    "address": "149 Main St W, Shelburne, ON L0N 1S3",
+    "telephone": "+1 519-925-1991",
+    "openingHours": [
+      "Monday: 8:00 AM \u2013 3:00 PM",
+      "Tuesday: 8:00 AM \u2013 3:00 PM",
+      "Wednesday: 8:00 AM \u2013 3:00 PM",
+      "Thursday: 8:00 AM \u2013 3:00 PM",
+      "Friday: 8:00 AM \u2013 3:00 PM",
+      "Saturday: 8:00 AM \u2013 3:00 PM",
+      "Sunday: Closed",
+      "Note: Hours should be verified with the business."
+    ]
+  }
+}
